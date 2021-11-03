@@ -46,7 +46,9 @@ Use the copy function below to do the following:
 */
 
 function copy(array){
-  return array
+
+  return [...array];
+
 }    
 
 
@@ -80,17 +82,17 @@ Use the addFlavor function below to do the following:
 */
 
 
-// function addFlavor(array, flavor){
-
-//     array.unshift(flavor)
-
-//     return array
-    
-// }
-
 function addFlavor(array, flavor){
-  return [flavor, ...array]
+
+    array.unshift(flavor)
+
+    return array
+    
 }
+
+// function addFlavor(array, flavor){
+//   return [flavor, ...array]
+// }
 
 
 
@@ -126,8 +128,10 @@ Use the getFlavorByIndex function below to do the following:
   For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
 
-function getFlavorByIndex(/*your code here*/){
-  /*your code here*/
+function getFlavorByIndex(array, number){
+  
+  return array[number]
+
 }
 
 
@@ -145,10 +149,31 @@ Use the removeFlavorByName function below to do the following:
 
   HINT: You can use .splice() for this
 */
+function removeFlavorByName(array, flavor){
 
-function removeFlavorByName(/*your code here*/){
-  /*your code here*/
+  for ( let i = 0; i < array.length ; i ++){
+
+    if (array[i] === (flavor)){
+
+      array.splice (i , 1);
+    }
+    
+  }
+
+ return array;
+
 }
+
+// function removeFlavorByName(array, flavor){
+//   let index = array.indexOf(flavor)
+
+//   if (index > -1) {
+    
+//   array.splice (index, 1);
+
+//   return array;  
+//   }
+// }
 
 
 
@@ -172,8 +197,17 @@ Use the filterByWord function below to do the following:
   DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
-  /*your code here*/
+function filterByWord(array, flavor){
+    const filtered = [];
+
+    for (let i = 0; i < array.length; i ++){
+
+      if (array[i].includes(flavor)){
+
+        filtered.push(array[i])
+      }
+    }
+    return filtered;
 }
 
 
